@@ -116,7 +116,7 @@ class AddOption extends React.Component {
     e.preventDefault();
     const option = e.target.elements.option.value.trim();
     const error = this.props.handleAddOption(option);
-    document.getElementById("option").value = "";
+    document.getElementById("input").value = "";
     this.setState(() => {
       return { error };
     });
@@ -126,7 +126,7 @@ class AddOption extends React.Component {
       <div>
         { this.state.error && <p>{this.state.error}</p>}
         <form onSubmit={this.handleAddOption}> 
-          <input type="text" name="option" id="option"/>
+          <input type="text" name="option" id="input"/>
           <button>Add Option</button>
         </form>
       </div>

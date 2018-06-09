@@ -218,7 +218,7 @@ var AddOption = function (_React$Component6) {
       e.preventDefault();
       var option = e.target.elements.option.value.trim();
       var error = this.props.handleAddOption(option);
-      document.getElementById("option").value = "";
+      document.getElementById("input").value = "";
       this.setState(function () {
         return { error: error };
       });
@@ -237,7 +237,7 @@ var AddOption = function (_React$Component6) {
         React.createElement(
           'form',
           { onSubmit: this.handleAddOption },
-          React.createElement('input', { type: 'text', name: 'option', id: 'option' }),
+          React.createElement('input', { type: 'text', name: 'option', id: 'input' }),
           React.createElement(
             'button',
             null,
