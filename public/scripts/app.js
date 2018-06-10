@@ -48,9 +48,7 @@ var IndecisionApp = function (_React$Component) {
         return 'This option already exists';
       }
       this.setState(function (prevState) {
-        return {
-          options: prevState.options.concat(option) // array3 = array1.concat(array2)
-        };
+        return { options: prevState.options.concat(option) };
       });
     }
   }, {
