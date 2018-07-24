@@ -3,23 +3,22 @@ import AddOption from './AddOption';
 import Options from './Options';
 import Action from './Action';
 import Header from './Header';
+import OptionModal from './OptionModal';
 
 export default class IndecisionApp extends React.Component {
   state = {
-    options: []
+    options: [],
+    selectedOption: undefined
   };
-  
+   
   componentDidMount() {
     try {
       const json = localStorage.getItem('options');
       const options = JSON.parse(json);
-
       if (options) {
         this.setState(() => ({ options }));
       }
-
       console.log('Component Mounted: Fetching Data');
-
     } catch (e) {
       // do nothing, but at least caught the edge case.
     }
@@ -41,6 +40,10 @@ export default class IndecisionApp extends React.Component {
     this.setState(() => ({ options: [] }));
   };
 
+  handleDeleteSelectedOption = () => {
+    this.setState(() => ({ selectedOption: undefined }));
+  }
+
   handleDeleteOption = (optionToRemove) => {
     this.setState((prevState) => ({
       options: prevState.options.filter((option) => optionToRemove !== option)
@@ -50,11 +53,12 @@ export default class IndecisionApp extends React.Component {
   handlePick = () => {
     const randomNum = Math.floor(Math.random() * this.state.options.length);
     const option = this.state.options[randomNum];
-    return alert(option);
+    // return alert(option);
+    this.setState(() => ({ selectedOption: option}));
   };
 
   handleAddOption = (option) => {
-    if (!option) {
+    if (!option) { 
       return 'Please enter something';
     } else if (this.state.options.indexOf(option) > -1) {
       return 'This option already exists';
@@ -80,6 +84,10 @@ export default class IndecisionApp extends React.Component {
         <AddOption 
           handleAddOption={this.handleAddOption}
         />
+        <OptionModal
+          selectedOption={this.state.selectedOption}
+          handleDeleteSelectedOption={this.handleDeleteSelectedOption}>
+        </OptionModal>
       </div>
     );
   }
