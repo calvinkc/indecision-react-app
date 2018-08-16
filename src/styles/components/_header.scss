@@ -4,8 +4,17 @@
   color: white;
   margin-bottom: 4.8rem;
   padding: 1.6rem 0;// 1.6 top and bottom, 0 left and right
-  
-  h1 {
-    color: red;
-  }
+}
+// "BEM" naming convention: block element modifier
+// a block is a big thing like header, and element go inside
+.header__title {  
+  font-size: 3.2rem;
+  margin: 0;
+}
+
+.header__subtitle {
+  font-size: 1.6rem;
+  margin: 0;
+  color: #a5afd7;
+  margin: 0;
 }
