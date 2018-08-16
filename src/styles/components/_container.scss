@@ -1,0 +1,7 @@
+// Allows us to center the stuff center and below rather than all shoved to the left
+.container {
+  max-width: 60rem; // Max width, so we can distribute the space left/right evenly 
+  margin: 0 auto; // up/down is 0 but left/right is now auto 
+  padding: 0 $m-size;// no padding on top and bottom just a little on left/right for when window small
+  background-color: $dark-blue;
+}
